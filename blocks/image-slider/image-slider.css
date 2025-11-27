@@ -1,0 +1,165 @@
+.image-slider {
+  position: relative;
+  padding: 40px 0;
+  background-color: #e3d8cc;
+  width: 100%;
+  margin: 0 auto;
+  color: #fff;
+  overflow: hidden;
+}
+
+.image-slider .slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 60px; /* Space for buttons */
+}
+
+.image-slider .slider-track {
+  display: flex;
+  transition: transform 0.5s ease; /* Smooth sliding */
+  will-change: transform; /* Perf hint */
+}
+
+.image-slider .slider-slide {
+  /* --- MODIFIED: Show 3 slides on desktop --- */
+  flex: 0 0 calc(100% / 3);
+  display: flex;
+  
+  /* --- Fix collapsing content --- */
+  flex-direction: column;   /* Stack image and text vertically */
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center;      /* Center content horizontally */
+  /* --- End new styles --- */
+  
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.image-slider .slider-slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  
+  /* --- Stop image from being too wide --- */
+  max-width: 300px;
+}
+
+/* --- Style the text inside the slide --- */
+.image-slider .slider-slide p {
+  color: #333; /* Text is dark, not white */
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+  white-space: normal;
+  word-break: break-word;
+  padding: 0 10px; /* Give text breathing room */
+}
+
+.image-slider .slider-navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 10px;
+  z-index: 2;
+}
+
+.image-slider button {
+  padding: 12px 25px;
+  background-color: #d9001d;
+  border: none;
+  cursor: pointer;
+  border-radius: 60px;
+  color: #fff6e3;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.image-slider button:hover:not(:disabled) {
+  background-color: #cc0000;
+}
+
+.image-slider button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.image-slider .slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+
+  /* --- MODIFIED: Position at the bottom --- */
+  position: absolute;
+  bottom: 1px; /* 15px from the bottom edge */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  /* margin-top: 20px; <-- REMOVED */
+}
+
+.image-slider .slider-dots li button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  padding: 0; /* <-- Fix for overlapping dots */
+}
+
+.image-slider .slider-dots li button.active {
+  background: #fff;
+}
+
+/* --- NEW: Hide "Showing image..." text on all screen sizes --- */
+.image-slider .sr-only {
+  display: none;
+}
+
+/* Mobile: 1 slide */
+@media (max-width: 768px) {
+  /* --- NEW: Force 1 slide on mobile --- */
+  .image-slider .slider-slide {
+    flex: 0 0 100%;
+  }
+
+  .image-slider .slider-slide img {
+    height: 200px;
+    max-width: 200px; /* Keep it smaller on mobile */
+  }
+
+  .image-slider .slider-slide p {
+    font-size: 12px; /* Smaller text on mobile */
+    margin-top: 10px;
+  }
+
+  .image-slider .slider-container {
+    padding: 0 40px;
+  }
+
+  /* --- Fix for overlapping buttons --- */
+  .image-slider .slider-navigation-buttons {
+    top: 140px; 
+  }
+
+  /* --- Hide dots on mobile --- */
+  .image-slider .slider-dots {
+    display: none;
+  }
+  
+  /* sr-only is already hidden by the global rule */
+}
