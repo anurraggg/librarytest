@@ -1,0 +1,101 @@
+/* Main block wrapper */
+.recipe-steps-wrapper {
+    max-width: 700px;
+    margin: 2rem auto;
+  }
+  
+  /* Each step item */
+  .recipe-step-item {
+    display: grid;
+    grid-template-columns: 150px 1fr; /* Image column | Content column */
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+    position: relative; /* For the checkbox */
+  }
+  
+  /* Add the decorative checkbox */
+  .recipe-step-item::before {
+    content: '☐'; /* You can also use a background image */
+    font-size: 1.5rem;
+    color: #ccc;
+    position: absolute;
+    top: 0;
+    left: 165px; /* Position it between image and text */
+  }
+  
+  /* Image column */
+  .recipe-step-image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #eee;
+  }
+  
+  /* Content column */
+  .recipe-step-content {
+    padding-left: 1.5rem; /* Space for the checkbox */
+  }
+  
+  .recipe-step-title {
+    font-size: var(--body-font-size-s);
+    font-weight: bold;
+    color: #888;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .recipe-step-description {
+    font-size: var(--body-font-size-m);
+    font-weight: bold;
+    color: #333;
+    margin: 0.25rem 0;
+  }
+  
+  .recipe-step-time {
+    font-size: var(--body-font-size-s);
+    color: #888;
+  }
+  
+  /* This rule hides the 4th+ steps by default */
+  .recipe-step-item.is-hidden {
+    display: none;
+  }
+  
+  /* Style for the "Read More" button */
+  .recipe-steps-button {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #c00; /* Example red color */
+    border: none;
+    border-radius: 99px;
+    cursor: pointer;
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 600px) {
+    .recipe-step-item {
+      grid-template-columns: 1fr; /* Stack image and text */
+      gap: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+    .recipe-step-item::before {
+      display: none; /* Hide checkbox on mobile */
+    }
+    .recipe-step-image img {
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    .recipe-step-content {
+      padding-left: 0;
+    }
+  }
