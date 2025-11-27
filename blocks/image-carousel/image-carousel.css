@@ -1,0 +1,76 @@
+.image-carousel {
+    position: relative;
+    padding: 40px 0;
+    background-color: #e3d8cc;
+    width: 100%;
+    margin: 0 auto;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .image-carousel .carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1300px; /* 400px * 3 + 40px margins + padding */
+    margin: 0 auto;
+    position: relative;
+    padding: 0 60px; /* Increased padding to ensure buttons are outside images */
+  }
+  
+  .image-carousel .carousel-slides {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .image-carousel .carousel-slide {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  .image-carousel img {
+    width: 230px;
+    height: 300px;
+    object-fit: cover;
+    margin: 0 80px;
+    border-radius: 8px;
+  }
+  
+  .image-carousel .carousel-navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 10px;
+  }
+  
+  .image-carousel button {
+    padding: 12px 25px;
+    background-color: #ff0000;
+    border: none;
+    cursor: pointer;
+    border-radius: 60px;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    z-index: 1;
+    overflow: hidden;
+    margin-right: 20px;
+  }
+  
+  .image-carousel button:hover {
+    background-color: #cc0000;
+  }
+  
+  .image-carousel button:disabled {
+    background-color: red;
+    cursor: not-allowed;
+  }
