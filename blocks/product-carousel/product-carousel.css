@@ -1,0 +1,205 @@
+/* PRODUCT CAROUSEL BLOCK */
+.product-carousel {
+    position: relative;
+    background-color: #fff6e6;
+    padding: 60px 0;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  /* Wrapper for all slides */
+  .product-carousel__wrapper {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    width: 100%;
+    min-height: 380px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Each slide */
+  .product-carousel__slide {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+  
+  .product-carousel__slide.active {
+    opacity: 1;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Hide non-active slides completely */
+  .product-carousel__slide:not(.active) {
+    display: none;
+  }
+  
+  /* Left: image */
+  .product-carousel__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .product-carousel__left img {
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    object-fit: contain;
+    display: block;
+    border-radius: 6px;
+    background-color: #fff6e6;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Right: text */
+  .product-carousel__right {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .product-carousel__right h3 {
+    font-size: 1.8rem;
+    color: #4a2f14;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  
+  .product-carousel__right p {
+    font-size: 1rem;
+    color: #4a2f14;
+    line-height: 1.6;
+  }
+  
+  /* Navigation buttons */
+  .product-carousel__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #d71a28;
+    color: #fff;
+    border: none;
+    font-size: 1.8rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 10;
+  }
+  
+  .product-carousel__nav:hover {
+    background-color: #b71520;
+  }
+  
+  .product-carousel__prev {
+    left: 5%;
+  }
+  
+  .product-carousel__next {
+    right: 5%;
+  }
+  
+  /* Dots */
+  .product-carousel__dots {
+    text-align: center;
+    margin-top: 24px;
+  }
+  
+  .product-carousel__dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid #d71a28;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .product-carousel__dot.active {
+    background-color: #d71a28;
+  }
+  
+  /* ---------------------------------------------
+   📱 MOBILE VIEW (below 768px)
+  --------------------------------------------- */
+  @media (max-width: 768px) {
+    /* Stack image above text */
+    .product-carousel__slide {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      text-align: center;
+      justify-items: center;
+    }
+  
+    /* Keep height consistent between slides */
+    .product-carousel__wrapper {
+      min-height: 420px; /* Adjust to match tallest product image */
+    }
+  
+    /* Image sizing & alignment */
+    .product-carousel__left img {
+      width: 80%;
+      max-width: 280px;
+      height: 320px;       /* Fixed height for consistency */
+      object-fit: contain; /* Prevent stretch/crop */
+      margin: 0 auto;
+    }
+  
+    /* Center-align the right column (text) */
+    .product-carousel__right {
+      text-align: center;
+      padding: 0 16px;
+    }
+  
+    .product-carousel__right h3 {
+      font-size: 1.3rem;
+      line-height: 1.4;
+    }
+  
+    .product-carousel__right p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  
+    /* Adjust arrows to bottom corners */
+    .product-carousel__nav {
+      position: absolute;
+      top: 15rem;
+      bottom: 100px;
+      transform: none;
+      width: 36px;
+      height: 36px;
+      font-size: 1.3rem;
+    }
+  
+    .product-carousel__prev {
+      left: 5%;
+    }
+  
+    .product-carousel__next {
+      right: 5%;
+    }
+  
+    /* Center dots below content */
+    .product-carousel__dots {
+      margin-top: 20px;
+    }
+  
+    .product-carousel__dot {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  
+  
