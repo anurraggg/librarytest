@@ -1,0 +1,102 @@
+.aashirvaad-product-detail {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #fff5e6;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.aashirvaad-product-detail img {
+  max-width: 40%;
+  height: auto;
+  margin-right: 20px;
+}
+
+.product-details {
+  flex: 1;
+}
+
+.product-details h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #343434;
+  margin-left: 150px;
+}
+
+.product-details p.description {
+  font-size: 20px;
+  color: black;
+  margin-bottom: 25px;
+  margin-top: 30px;
+}
+
+.product-details p.pack-sizes {
+  margin-bottom: 15px;
+}
+
+.product-details p.pack-sizes button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: 1px solid black;
+  background-color: #fff6e3;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  color: black;
+}
+
+.product-details p.pack-sizes button.active {
+  background-color: #343434;
+  color: #fff6e3;
+  border-color: #000;
+}
+
+.product-details p.nutrition {
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+}
+
+/* --- NEW RESPONSIVE STYLES --- */
+/* On screens 768px or smaller, stack the layout */
+@media (max-width: 768px) {
+  .aashirvaad-product-detail {
+    /* Change from side-by-side to vertical stack */
+    flex-direction: column;
+    align-items: center; /* Center the items in the column */
+  }
+
+  .aashirvaad-product-detail img {
+    /* Make the image larger and centered */
+    max-width: 90%;
+    margin-right: 0;     /* Remove side margin */
+    margin-bottom: 25px; /* Add space below the image */
+  }
+
+  .product-details {
+    /* Allow the details block to take full width */
+    width: 100%;
+  }
+
+  .product-details h2 {
+    /* --- THIS IS AN IMPORTANT FIX --- */
+    margin-left: 0;     /* Remove the large 150px desktop margin */
+    text-align: left; /* Center the title on mobile */
+    font-size: 30px;    /* Slightly smaller font for mobile */
+  }
+
+  .product-details p.description {
+    font-size: 18px; /* Slightly smaller font */
+  }
+
+  .product-details p.pack-sizes {
+    /* Center the pack size buttons */
+    text-align: center;
+  }
+
+  .product-details p.nutrition {
+    font-size: 22px; /* Slightly smaller font */
+  }
+}
