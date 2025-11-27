@@ -1,0 +1,13 @@
+.why-aashirvaad-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .why-aashirvaad-image img {
+    width: 200rem;
+    height: 40rem;
+    object-fit: contain;
+  }
