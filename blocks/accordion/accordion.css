@@ -1,0 +1,134 @@
+/* accordion.css */
+.accordion {
+    --accordion-spacing: 1rem;
+    --accordion-transition: all 0.3s ease;
+    --accordion-arrow-size: 1rem;
+    --accordion-color: currentColor;
+    --accordion-background: transparent;
+    --accordion-border: 1px solid #e0e0e0;
+    --accordion-border-radius: 0.5rem;
+    --accordion-padding: 1rem;
+    --accordion-heading-font: inherit;
+    --accordion-heading-size: 1.125rem;
+    --accordion-heading-weight: 600;
+    --accordion-panel-padding: 1rem;
+    --accordion-panel-background: #f9f9f9;
+  }
+  
+  .accordion .accordion-item {
+    border-bottom: var(--accordion-border);
+    overflow: hidden;
+  }
+  
+  .accordion .accordion-item:last-child {
+    border-bottom: none;
+  }
+  
+  .accordion .accordion-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 44px; /* Touch target minimum for mobile */
+    padding: var(--accordion-padding);
+    background: var(--accordion-background);
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font: var(--accordion-heading-font);
+    font-size: var(--accordion-heading-size);
+    font-weight: var(--accordion-heading-weight);
+    color: var(--accordion-color);
+    transition: var(--accordion-transition);
+  }
+  
+  .accordion .accordion-button:hover,
+  .accordion .accordion-button:focus {
+    outline: 2px solid var(--accordion-color);
+    outline-offset: -2px;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .accordion .accordion-button::after {
+    content: '';
+    display: inline-block;
+    width: var(--accordion-arrow-size);
+    height: var(--accordion-arrow-size);
+    margin-left: auto;
+    background: var(--accordion-color);
+    mask: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3e%3c/svg%3e") no-repeat center;
+    mask-size: contain;
+    transition: var(--accordion-transition);
+    flex-shrink: 0;
+  }
+  
+  .accordion .accordion-item[data-cmp-expanded] .accordion-button::after {
+    transform: rotate(180deg);
+  }
+  
+  .accordion .accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: var(--accordion-transition);
+    background: var(--accordion-panel-background);
+    padding: 0 var(--accordion-padding);
+    border-top: var(--accordion-border);
+  }
+  
+  .accordion .accordion-item[data-cmp-expanded] .accordion-panel {
+    max-height: 500px; /* Adjust based on content; or use JS for dynamic height */
+    padding: var(--accordion-panel-padding) var(--accordion-padding);
+  }
+  
+  .accordion .accordion-panel p {
+    margin: 0 0 var(--accordion-spacing);
+  }
+  
+  /* Mobile Responsiveness: Under 900px (tablets/small desktops) */
+  @media (max-width: 900px) {
+    .accordion {
+      --accordion-spacing: 0.75rem;
+      --accordion-transition: all 0.25s ease; /* Snappier on mobile */
+      --accordion-padding: 1rem; /* Increased for touch */
+      --accordion-panel-padding: 1rem;
+      --accordion-heading-size: 1rem; /* Slightly smaller headings */
+    }
+  
+    .accordion .accordion-button {
+      min-height: 48px; /* Larger touch target */
+      padding: 1rem 1.25rem; /* More horizontal space */
+    }
+  
+    .accordion .accordion-button::after {
+      --accordion-arrow-size: 1.125rem; /* Bigger arrow for thumbs */
+    }
+  
+    .accordion .accordion-panel p {
+      font-size: 0.875rem; /* Smaller body text to fit screens */
+      line-height: 1.5;
+    }
+  }
+  
+  /* Extra Small Mobile: Under 600px (phones in portrait) */
+  @media (max-width: 600px) {
+    .accordion {
+      --accordion-padding: 0.875rem;
+      --accordion-panel-padding: 0.875rem;
+      --accordion-heading-size: 0.9375rem; /* Even smaller for tiny screens */
+    }
+  
+    .accordion .accordion-button {
+      padding: 0.875rem 1rem;
+      min-height: 44px; /* Still accessible */
+    }
+  
+    .accordion .accordion-item {
+      --accordion-border-radius: 0.375rem; /* Softer corners on small devices */
+    }
+  
+    .accordion .accordion-panel {
+      padding-left: 0.875rem;
+      padding-right: 0.875rem;
+    }
+  }
