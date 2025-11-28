@@ -1,0 +1,70 @@
+/* banner.css */
+.banner {
+    --banner-max-width: 100%;
+    --banner-text-color: #333;
+    --banner-sub-size: clamp(1rem, 3vw + 0.5rem, 1.5rem);
+    --banner-padding: 2rem 1rem;
+    --banner-gap: 1.5rem;
+    --banner-font-family: system-ui, -apple-system, sans-serif; /* Add Hindi font if needed */
+    --banner-weight: 400;
+    --banner-line-height: 1.5;
+  }
+  
+  .banner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* NEW: Left-align children (image + text) */
+    max-width: var(--banner-max-width);
+    padding: var(--banner-padding);
+    gap: var(--banner-gap);
+    font-family: var(--banner-font-family);
+    /* Removed text-align: center; from here - now per-element */
+  }
+  
+  .banner picture,
+  .banner img {
+    width: 100%;
+    height: auto; /* Natural aspect ratio */
+    max-width: 100%; /* Prevent overflow */
+    object-fit: contain; /* Full image fit */
+    border-radius: 0.5rem;
+    align-self: stretch; /* NEW: Ensure image spans full width, left-aligned */
+  }
+  
+  .banner .banner-text {
+    font-size: var(--banner-sub-size);
+    font-weight: var(--banner-weight);
+    line-height: var(--banner-line-height);
+    color: var(--banner-text-color);
+    max-width: 60ch; /* Readable line length */
+    margin: 0;
+    text-align: left; /* NEW: Explicit left-align for text */
+    width: 100%; /* NEW: Full width to align with image left edge */
+  }
+  
+  .banner .banner-text p {
+    margin: 0 0 0.5rem 0;
+    text-align: left; /* NEW: Ensure paragraphs follow */
+  }
+  
+  .banner picture img {
+    loading: eager; /* Hero priority */
+  }
+  
+  /* Mobile: Reduce padding, keep left-align for readability */
+  @media (max-width: 900px) {
+    .banner {
+      --banner-padding: 1.5rem 1rem;
+      --banner-gap: 1rem;
+    }
+  
+    .banner .banner-text {
+      font-size: 1rem;
+      width: 100%; /* Full on small screens */
+    }
+  
+    .banner picture,
+    .banner img {
+      width: 100%; /* Back to full for mobile */
+    }
+  }
