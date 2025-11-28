@@ -1,0 +1,72 @@
+/* Styles for the whole block wrapper */
+.promo-wrapper {
+    /* max-width: 180px;  <-- REMOVED FROM HERE */
+    margin: 1rem auto; /* Center the card */
+    /* Added flex to help center the block if it's narrower */
+    display: flex; 
+    justify-content: center;
+  }
+  
+  /* Styles for the block itself */
+  .promo.block {
+    max-width: 800px; /* <--- ADDED HERE */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Ensures image corners are rounded */
+    background-color: var(--background-color, #fff);
+    width: 100%; /* Ensure it fills the wrapper up to the max-width */
+  }
+  
+  /* Reset default margins for content inside the block */
+  .promo.block h1,
+  .promo.block h2,
+  .promo.block h3,
+  .promo.block h4,
+  .promo.block h5,
+  .promo.block h6,
+  .promo.block p {
+    margin: 0;
+  }
+  
+  /* Style for the Title row */
+  .promo .promo-title {
+    padding: 1rem 1.25rem 0.5rem;
+  }
+  
+  .promo .promo-title h1,
+  .promo .promo-title h2,
+  .promo .promo-title h3 {
+    font-size:xx-large;
+  }
+  
+  /* Style for the first description row (above image) */
+  .promo .promo-description-1 {
+    padding: 0 1.25rem 1rem;
+    font-size: var(--body-font-size-s);
+    color: #555;
+  }
+  
+  /* Style for the image row */
+  .promo .promo-image {
+    line-height: 0; /* Removes extra space below image */
+  }
+  
+  .promo .promo-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Style for the second description row (below image) */
+  .promo .promo-description-2 {
+    padding: 1rem 1.25rem;
+    font-size: var(--body-font-size-s);
+  }
+  
+  /* Hide any rows that the JS detected as empty */
+  .promo .promo-empty {
+    display: none;
+  }
